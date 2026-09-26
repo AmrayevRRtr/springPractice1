@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: tsis-practice-2
+
+app:
+  name: TSIS Practice 2
+  environment: default
+  max-items: 10
+  support-email: support@example.com
+  mood-audit:
+    enabled: false

@@ -1,0 +1,9 @@
+app:
+  environment: test
+  max-items: 5
+  mood-audit:
+    enabled: false
+
+logging:
+  level:
+    com.example.tsis: INFO
