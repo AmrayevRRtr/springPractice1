@@ -1,0 +1,32 @@
+@baseUrl = http://localhost:8080/api/v1/bookings
+
+### 1. Create booking
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "roomId": 1,
+  "guestName": "Ruslan",
+  "startTime": "2030-01-10T10:00:00",
+  "endTime": "2030-01-10T12:00:00"
+}
+
+### 2. Get all
+GET {{baseUrl}}
+
+### 3. Get by id (200)
+GET {{baseUrl}}/1
+
+### 4. Update (200)
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "roomId": 1,
+  "guestName": "Updated",
+  "startTime": "2030-01-10T10:00:00",
+  "endTime": "2030-01-10T13:00:00"
+}
+
+### 5. Delete (204)
+DELETE {{baseUrl}}/1

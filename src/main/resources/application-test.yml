@@ -1,7 +1,7 @@
 app:
   environment: test
   max-items: 5
-  mood-audit:
+  booking-audit:
     enabled: false
 
 logging:

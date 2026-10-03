@@ -3,10 +3,12 @@ server:
 
 spring:
   application:
-    name: tsis-practice-2
+    name: sis1
+  profiles:
+    active: "@spring.profiles.active@"
 
 app:
-  name: TSIS Practice 2
+  name: SIS 1
   environment: default
   max-items: 10
   support-email: support@example.com
