@@ -6,13 +6,13 @@
     mvn spring-boot:run -Dspring-boot.run.profiles=test
     mvn spring-boot:run
 
-In IntelliJ IDEA: open the project folder (pom.xml), run `TsisApplication`, and set
+In IntelliJ IDEA: open the project folder, run `TsisApplication`, and set
 `Active profiles` in the run configuration to `dev` or `test`.
 
 ## Endpoints
 
     GET  /api/moods?mood=happy
-    POST /api/moods            (body: plain text)
+    POST /api/moods            
 
 ## Conditional bean: MoodAuditor
 
