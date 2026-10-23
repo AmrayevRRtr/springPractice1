@@ -7,21 +7,23 @@ import java.time.LocalDateTime;
 
 public class CreateBookingRequestDTO {
 
-    @NotNull(message = "room id is required")
-    @Positive(message = "room id must be positive")
+    @NotNull(message = "roomId is required")
+    @Positive(message = "roomId must be positive")
     private Long roomId;
 
-    @NotBlank
+    @NotBlank(message = "guestName must not be blank")
+    @Size(min = 2, max = 50, message = "guestName must be 2 to 50 characters")
     private String guestName;
 
-    @NotNull(message = "start time is required")
+    @NotNull(message = "startTime is required")
     @Future(message = "startTime must be in the future")
     private LocalDateTime startTime;
 
-    @NotNull(message = "end time is required")
+    @NotNull(message = "endTime is required")
     private LocalDateTime endTime;
 
-    public CreateBookingRequestDTO() {}
+    public CreateBookingRequestDTO() {
+    }
 
     public Long getRoomId() {
         return roomId;
@@ -56,7 +58,7 @@ public class CreateBookingRequestDTO {
     }
 
     @JsonIgnore
-    @AssertTrue
+    @AssertTrue(message = "endTime must be after startTime")
     public boolean isTimeRangeValid() {
         return startTime == null || endTime == null || endTime.isAfter(startTime);
     }

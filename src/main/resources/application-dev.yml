@@ -1,3 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bookings_dev
+    username: postgres
+    password: ${DB_PASSWORD}
+
 app:
   environment: dev
   max-items: 50
@@ -7,3 +13,4 @@ app:
 logging:
   level:
     com.example.tsis: DEBUG
+    org.hibernate.SQL: DEBUG

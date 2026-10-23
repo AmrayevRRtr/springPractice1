@@ -14,7 +14,7 @@ public class UpdateBookingRequestDTO {
     @Positive(message = "roomId must be positive")
     private Long roomId;
 
-    @NotBlank(message = "guestName is required")
+    @NotBlank(message = "guestName must not be blank")
     private String guestName;
 
     @NotNull(message = "startTime is required")
@@ -23,7 +23,8 @@ public class UpdateBookingRequestDTO {
     @NotNull(message = "endTime is required")
     private LocalDateTime endTime;
 
-    public UpdateBookingRequestDTO() {}
+    public UpdateBookingRequestDTO() {
+    }
 
     public Long getRoomId() {
         return roomId;
@@ -58,7 +59,7 @@ public class UpdateBookingRequestDTO {
     }
 
     @JsonIgnore
-    @AssertTrue
+    @AssertTrue(message = "endTime must be after startTime")
     public boolean isTimeRangeValid() {
         return startTime == null || endTime == null || endTime.isAfter(startTime);
     }

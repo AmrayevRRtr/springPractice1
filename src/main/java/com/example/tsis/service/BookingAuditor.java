@@ -22,14 +22,14 @@ public class BookingAuditor {
     public void recordCreated(Booking booking) {
         log.info("[{}] booking created: id={}, room={}, guest={}, {} - {}",
                 appProperties.environment(),
-                booking.getId(), booking.getRoomId(), booking.getGuestName(),
+                booking.getId(), booking.getRoom().getId(), booking.getGuestName(),
                 booking.getStartTime(), booking.getEndTime());
     }
 
     public void recordUpdated(Booking booking) {
         log.info("[{}] booking updated: id={}, room={}, guest={}, {} - {}",
                 appProperties.environment(),
-                booking.getId(), booking.getRoomId(), booking.getGuestName(),
+                booking.getId(), booking.getRoom().getId(), booking.getGuestName(),
                 booking.getStartTime(), booking.getEndTime());
     }
 

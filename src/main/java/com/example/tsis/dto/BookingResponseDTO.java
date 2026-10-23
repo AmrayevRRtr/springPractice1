@@ -15,7 +15,9 @@ public class BookingResponseDTO {
     private final LocalDateTime endTime;
     private final BookingStatus bookingStatus;
 
-    public BookingResponseDTO(Long id, Long roomId, String roomLabel, String guestName, LocalDateTime startTime, LocalDateTime endTime, BookingStatus bookingStatus) {
+    public BookingResponseDTO(Long id, Long roomId, String roomLabel, String guestName,
+                              LocalDateTime startTime, LocalDateTime endTime,
+                              BookingStatus bookingStatus) {
         this.id = id;
         this.roomId = roomId;
         this.roomLabel = roomLabel;
@@ -28,8 +30,8 @@ public class BookingResponseDTO {
     public static BookingResponseDTO from(Booking booking) {
         return new BookingResponseDTO(
                 booking.getId(),
-                booking.getRoomId(),
-                "Room #" + booking.getRoomId(),
+                booking.getRoom().getId(),
+                "Room #" + booking.getRoom().getId(),
                 booking.getGuestName(),
                 booking.getStartTime(),
                 booking.getEndTime(),

@@ -2,6 +2,7 @@ package com.example.tsis.exception;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.mapping.PropertyReferenceException;
 import org.springframework.http.*;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -31,6 +32,15 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
         problem.setTitle("Booking conflict");
         problem.setType(URI.create("https://api.example.com/errors/booking-conflict"));
+        return problem;
+    }
+
+    @ExceptionHandler(PropertyReferenceException.class)
+    public ProblemDetail handleBadSort(PropertyReferenceException ex) {
+        ProblemDetail problem = ProblemDetail.forStatusAndDetail(
+                HttpStatus.BAD_REQUEST, "Unknown sort property: " + ex.getPropertyName());
+        problem.setTitle("Invalid sort parameter");
+        problem.setType(URI.create("https://api.example.com/errors/invalid-sort"));
         return problem;
     }
 

@@ -6,6 +6,17 @@ spring:
     name: sis1
   profiles:
     active: "@spring.profiles.active@"
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+  data:
+    web:
+      pageable:
+        default-page-size: 10
+        max-page-size: 50
 
 app:
   name: SIS 1

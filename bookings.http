@@ -30,3 +30,9 @@ Content-Type: application/json
 
 ### 5. Delete (204)
 DELETE {{baseUrl}}/1
+
+### 6. Get with paging & sorting
+GET http://localhost:8080/api/v1/bookings?page=0&size=2&sort=startTime,desc
+
+### 7. Get with filtration
+GET http://localhost:8080/api/v1/bookings?roomId=1
