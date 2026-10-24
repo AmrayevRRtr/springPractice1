@@ -1,9 +1,3 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/bookings_test
-    username: postgres
-    password: ${DB_PASSWORD}
-
 app:
   environment: test
   max-items: 5
