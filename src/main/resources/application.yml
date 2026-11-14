@@ -12,6 +12,11 @@ spring:
     open-in-view: false
   flyway:
     enabled: true
+  cache:
+    type: caffeine
+    cache-names: bookings
+    caffeine:
+      spec: maximumSize=500,expireAfterWrite=5m
   data:
     web:
       pageable:
@@ -25,3 +30,5 @@ app:
   support-email: support@example.com
   mood-audit:
     enabled: false
+  logging:
+    slow-threshold-ms: 200

@@ -3,6 +3,8 @@ spring:
     url: jdbc:postgresql://localhost:5432/bookings_dev
     username: postgres
     password: ${DB_PASSWORD}
+  jpa:
+    show-sql: true
 
 app:
   environment: dev

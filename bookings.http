@@ -15,7 +15,7 @@ Content-Type: application/json
 GET {{baseUrl}}
 
 ### 3. Get by id (200)
-GET {{baseUrl}}/1
+GET {{baseUrl}}/3
 
 ### 4. Update (200)
 PUT {{baseUrl}}/1

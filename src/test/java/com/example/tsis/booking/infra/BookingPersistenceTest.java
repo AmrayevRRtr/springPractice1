@@ -50,7 +50,6 @@ class BookingPersistenceTest {
 
     @Test
     void existsOverlapping_detectsConflict_againstSeedData() {
-        // seed (V2): Alpha занята 2030-02-01 10:00-12:00
         LocalDateTime d = LocalDateTime.of(2030, 2, 1, 0, 0);
 
         assertThat(repository.existsOverlapping(alphaId(), d.withHour(11), d.withHour(13), null)).isTrue();
