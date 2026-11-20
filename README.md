@@ -32,3 +32,13 @@ receives the auditor through `ObjectProvider`.
 
 - All service-layer classes use constructor injection, fields are `private final`
 - No `@Autowired` on fields
+
+
+## Practice 6: documented API + resilient call
+
+- Swagger UI: http://localhost:8080/swagger-ui.html (OpenAPI JSON: `/v3/api-docs`), via `springdoc-openapi-starter-webmvc-ui`
+- Every endpoint has `@Operation` and `@ApiResponse`; error responses use the `ProblemDetail` schema (`application/problem+json`)
+- Outbound client: HTTP interface `HolidayApi` on top of `RestClient` (Nager.Date public holidays), `GET /api/v1/holidays?year=2026`
+- Timeouts come from `app.holiday-client.connect-timeout` and `app.holiday-client.read-timeout` in `application.yml`
+- Fallback: on connection error, timeout or 4xx/5xx `HolidayService` returns 200 with `source=FALLBACK` and an empty list
+- Failure path tests: `HolidayServiceFailureTest` (remote stopped, read timeout, HTTP 500)

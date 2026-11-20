@@ -1,6 +1,7 @@
 package com.example.tsis.booking.web;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
 
 import java.time.LocalDateTime;
@@ -9,17 +10,21 @@ public class CreateBookingRequestDTO {
 
     @NotNull(message = "roomId is required")
     @Positive(message = "roomId must be positive")
+    @Schema(example = "1")
     private Long roomId;
 
     @NotBlank(message = "guestName must not be blank")
     @Size(min = 2, max = 50, message = "guestName must be 2 to 50 characters")
+    @Schema(example = "Ruslan")
     private String guestName;
 
     @NotNull(message = "startTime is required")
     @Future(message = "startTime must be in the future")
+    @Schema(example = "2030-01-10T10:00:00")
     private LocalDateTime startTime;
 
     @NotNull(message = "endTime is required")
+    @Schema(example = "2030-01-10T12:00:00")
     private LocalDateTime endTime;
 
     public CreateBookingRequestDTO() {

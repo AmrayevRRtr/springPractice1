@@ -32,3 +32,15 @@ app:
     enabled: false
   logging:
     slow-threshold-ms: 200
+  holiday-client:
+    base-url: https://date.nager.at/api/v3
+    country-code: KZ
+    connect-timeout: 2s
+    read-timeout: 3s
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+  api-docs:
+    path: /v3/api-docs

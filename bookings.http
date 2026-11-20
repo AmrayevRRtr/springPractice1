@@ -36,3 +36,9 @@ GET http://localhost:8080/api/v1/bookings?page=0&size=2&sort=startTime,desc
 
 ### 7. Get with filtration
 GET http://localhost:8080/api/v1/bookings?roomId=1
+
+### 8. Holidays from the external service (source=REMOTE, or FALLBACK when it is down)
+GET http://localhost:8080/api/v1/holidays?year=2026
+
+### 9. OpenAPI JSON
+GET http://localhost:8080/v3/api-docs
